@@ -3,7 +3,7 @@ import "./App.css";
 import firebase from 'firebase';
 import db from '../../firebase.js';
 import FlipMove from 'react-flip-move';
-import { SendIcon } from '@material-ui/icons';
+import SendIcon from '@material-ui/icons/Send';
 import Message from '../../components/Message';
 import { IconButton, FormControl, InputLabel, Input } from '@material-ui/core';
 
@@ -20,6 +20,10 @@ const Index = (props) => {
 			timestamp: firebase.firestore.FieldValue.serverTimestamp()
 		});
 		setMessageText("");
+	}
+
+	function isUser(name){
+		return username === name;
 	}
 
 	useEffect(() => {
@@ -53,9 +57,9 @@ const Index = (props) => {
 			   		messages.map((message, index) => (
 			   			<Message 
 			   				key={message.id} 
-			   				username={message.username} 
+			   				username={isUser(message.username) ? "" : message.username} 
 			   				text={message.text}
-			   				alignRight={message.username === username}
+			   				alignRight={isUser(message.username)}
 			   			/>
 			   		))
 			   	}
