@@ -1,0 +1,28 @@
+.MessageCard {
+	padding: 0 1rem !important;
+	width: fit-content;
+	max-width: 70%;
+	margin: 1rem 0;
+	background-color: #e9e9eb !important;
+}
+
+.MessageCard--ShiftRight {
+	margin-left: auto;
+	background-color: #0b81ff !important;
+	color: white !important;
+}
+
+.MessageCard .MuiTypography-body1 {
+	display: flex;
+}
+
+.MessageCard sup {
+	position: relative;
+	left: -0.5rem;
+}
+
+@media (min-width: 768px){
+	.MessageCard {
+		max-width: 60%;
+	}
+}
